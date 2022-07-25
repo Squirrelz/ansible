@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+docker run --rm -it ansible-bare bash -c "bash <(curl -s https://raw.githubusercontent.com/Squirrelz/ansible/master/ansible-install); bash"
+
