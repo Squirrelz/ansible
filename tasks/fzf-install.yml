@@ -16,15 +16,6 @@
   - core
   - fzf
 
-- name: Remove symlink for fish key-bindings
-  file:
-    path: "{{ lookup('env', 'HOME') }}/.config/fish/functions/fzf_key_bindings.fish"
-    state: absent
-  tags: 
-  - ubuntu
-  - core
-  - fzf
-
 - name: Ensure local binary dir is created
   file:
     path: "{{ lookup('env', 'HOME') }}/.local/bin"
@@ -67,25 +58,6 @@
   file:
     src: "{{ lookup('env', 'HOME') }}/.local/fzf/bin/fzf-tmux"
     path: "{{ lookup('env', 'HOME') }}/.local/bin/fzf-tmux"
-    state: link
-  tags: 
-  - ubuntu
-  - core
-  - fzf
-
-- name: Ensure fish functions dir is created
-  file:
-    path: "{{ lookup('env', 'HOME') }}/.config/fish/functions"
-    state: directory
-  tags:
-  - ubuntu
-  - core
-  - fzf
-
-- name: Create symlink for fish key-bindings
-  file:
-    src: "{{ lookup('env', 'HOME') }}/.local/fzf/shell/key-bindings.fish"
-    path: "{{ lookup('env', 'HOME') }}/.config/fish/functions/fzf_key_bindings.fish"
     state: link
   tags: 
   - ubuntu
