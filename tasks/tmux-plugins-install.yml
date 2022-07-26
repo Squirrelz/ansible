@@ -31,7 +31,7 @@
 
 - name: Clone tmux plugin manager
   ansible.builtin.git:
-    repo: 'https://github.com/tmux-plugins/tpm'
+    repo: 'https://github.com/tmux-plugins/tpm.git'
     dest: "{{ lookup('env', 'HOME') }}/.local/share/tmux/plugins/tpm"
   tags:
   - ubuntu
