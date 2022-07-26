@@ -6,30 +6,14 @@
   - ubuntu
   - neovim-post
   - neovim-clean
-
-- name: Remove Plugins
-  file:
-    path: "{{ lookup('env', 'HOME') }}/.local/share/nvim/plugged"
-    state: absent
+  
+- name: Get Packer
+  ansible.builtin.git:
+    repo: 'https://github.com/wbthomason/packer.nvim'
+    dest: "{{ lookup('env', 'HOME') }}/.local/share/nvim/site/pack/packer/start/packer.nvim"
   tags:
-  - ubuntu
-  - neovim-post
-  - neovim-clean
-
-- name: Remove Vim-Plug
-  file:
-    path: "{{ lookup('env', 'HOME') }}/.local/share/nvim/site/autoload/plug.vim"
-    state: absent
-  tags:
-  - ubuntu
-  - neovim-post
-  - neovim-clean
-
-- name: Install Vim-Plug
-  shell: curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  tags:
-  - ubuntu
-  - neovim-post
+    - install
+    - neovim-post
 
 # Run after dotfiles are in place to ensure nvim binary is in path and the vim config file is in place
 # Without PlugUpdate helptags seem to be missed
