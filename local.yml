@@ -28,12 +28,10 @@
   - import_tasks: tasks/neovim-compile.yml
   - import_tasks: tasks/neovim-install.yml
   - import_tasks: tasks/zsh-setup.yml
-  - import_tasks: tasks/node.yml
-  - import_tasks: tasks/npm-packages.yml
   - import_tasks: tasks/setup-dotnet.yml
   - import_tasks: tasks/setup-omnisharp-lsp.yml
-  - import_tasks: tasks/dotfiles-setup.yml
   - import_tasks: tasks/neovim-post-install.yml
   - import_tasks: tasks/githubcli.yml
   - import_tasks: tasks/docker-install.yml
   - import_tasks: tasks/install-netcoredbg.yml
+  - import_tasks: tasks/dotfiles-setup.yml
