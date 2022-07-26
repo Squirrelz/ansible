@@ -1,4 +1,4 @@
-- hosts: localhost
+- hosts: all
   connection: local
   vars:
     node_version: 16
@@ -14,7 +14,7 @@
       - build-essential
       - git
       - curl
-    tags: 
+    tags:
     - pre
     - ubuntu
   tasks:
