@@ -1,9 +1,9 @@
 - name: Clone dotfiles
   git:
-    repo: 'https://github.com/hoelter/.dotfiles.git'
-    dest: "{{ lookup('env', 'HOME') }}/.dotfiles"
+    repo: 'https://github.com/Squirrelz/dotfiles.git'
+    dest: "{{ lookup('env', 'HOME') }}/dotfiles"
     version: master
-    update: no # Don't overwrite potential local changes
+    update: yes # Don't overwrite potential local changes
   tags:
   - ubuntu
   - dotfiles
@@ -42,7 +42,7 @@
   - dotfiles
 
 - name: Stow dotfiles
-  shell: cd {{ lookup('env', 'HOME') }}/.dotfiles && ./ubuntu-install
+  shell: cd {{ lookup('env', 'HOME') }}/dotfiles && ./ubuntu-install
   tags:
   - ubuntu
   - dotfiles

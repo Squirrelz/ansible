@@ -2,6 +2,9 @@
   connection: local
   vars:
     node_version: 16
+    source_key: "./.ssh/id_rsa"
+    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
+    personal: "{{ lookup('env', 'HOME') }}/personal"
   pre_tasks:
   - name: Update cache and ensure some core utils are installed
     become: yes
@@ -19,12 +22,12 @@
   - import_tasks: tasks/install-golang.yml
   - import_tasks: tasks/tmux-install.yml
   - import_tasks: tasks/tmux-plugins-install.yml
-  - import_tasks: tasks/fish.yml
   - import_tasks: tasks/fzf-install.yml
   - import_tasks: tasks/lf-listfiles-install.yml
   - import_tasks: tasks/install-pistol.yml
   - import_tasks: tasks/neovim-compile.yml
   - import_tasks: tasks/neovim-install.yml
+  - import_tasks: tasks/zsh-setup.yml
   - import_tasks: tasks/node.yml
   - import_tasks: tasks/npm-packages.yml
   - import_tasks: tasks/setup-dotnet.yml
@@ -34,4 +37,3 @@
   - import_tasks: tasks/githubcli.yml
   - import_tasks: tasks/docker-install.yml
   - import_tasks: tasks/install-netcoredbg.yml
-
