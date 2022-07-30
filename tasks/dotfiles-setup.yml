@@ -2,7 +2,7 @@
   git:
     repo: 'https://github.com/Squirrelz/dotfiles.git'
     dest: "{{ lookup('env', 'HOME') }}/dotfiles"
-    version: master
+    version: main
     update: yes # Don't overwrite potential local changes
   tags:
   - ubuntu
