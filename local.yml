@@ -1,7 +1,6 @@
 - hosts: localhost
   connection: local
   vars:
-    node_version: 16
     source_key: "./.ssh/id_rsa"
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
     personal: "{{ lookup('env', 'HOME') }}/personal"
@@ -18,6 +17,7 @@
     - pre
     - ubuntu
   tasks:
+  - import_tasks: tasks/ssh.yml
   - import_tasks: tasks/core-packages.yml
   - import_tasks: tasks/golang.yml
   - import_tasks: tasks/tmux.yml
