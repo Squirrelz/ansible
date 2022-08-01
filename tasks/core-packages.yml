@@ -40,6 +40,7 @@
     - dunst
     - polybar
     - rofi
+    - keepassxc
     - ccache
     - ninja-build
     - python3-pip
@@ -73,14 +74,14 @@
   file:
     path: "{{ lookup('env', 'HOME') }}/.local/bin"
     state: directory
-  tags: 
+  tags:
   - ubuntu
   - core
 
 - name: Register architecture
   shell: dpkg --print-architecture
   register: curr_arch
-  tags: 
+  tags:
   - ubuntu
   - core
   - fd
@@ -100,7 +101,7 @@
   shell: |
     curl --silent "https://api.github.com/repos/sharkdp/fd/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")' | cut -c 2-
   register: fd_ver
-  tags: 
+  tags:
   - ubuntu
   - core
   - fd
@@ -128,7 +129,7 @@
   shell: |
     curl --silent "https://api.github.com/repos/sharkdp/bat/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")' | cut -c 2-
   register: bat_ver
-  tags: 
+  tags:
   - ubuntu
   - core
   - batcat
@@ -156,7 +157,7 @@
   shell: |
     curl --silent "https://api.github.com/repos/BurntSushi/ripgrep/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")'
   register: rg_ver
-  tags: 
+  tags:
   - ubuntu
   - core
   - rg
