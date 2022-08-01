@@ -47,7 +47,7 @@
 - name: Create binary symlink for fzf
   file:
     src: "{{ lookup('env', 'HOME') }}/.local/fzf/bin/fzf"
-    path: "{{ lookup('env', 'HOME') }}/.local/bin/fzf"
+    path: "/usr/local/sbin/fzf"
     state: link
   tags: 
   - ubuntu
@@ -57,7 +57,7 @@
 - name: Create binary symlink for fzf-tmux 
   file:
     src: "{{ lookup('env', 'HOME') }}/.local/fzf/bin/fzf-tmux"
-    path: "{{ lookup('env', 'HOME') }}/.local/bin/fzf-tmux"
+    path: "/usr/local/sbin/fzf-tmux"
     state: link
   tags: 
   - ubuntu
