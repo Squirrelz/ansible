@@ -37,6 +37,9 @@
     - htop
     - lsof
     - i3
+    - dunst
+    - polybar
+    - rofi
     - ccache
     - ninja-build
     - python3-pip
