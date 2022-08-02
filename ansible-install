@@ -6,11 +6,15 @@ sudo apt install software-properties-common -y
 sudo add-apt-repository --yes --update ppa:ansible/ansible
 sudo apt install -y ansible git
 
+if [[ -d ~/.ansible]]; then
+	printf "\033[0;35mCleaning up script\033[0m\n"
+	rm -rf ~/.ansible
+fi
+
 printf "\033[35mpulling ansible dir\033[0m\n"
-git clone https://github.com/Squirrelz/ansible.git
+git clone https://github.com/Squirrelz/ansible.git ~/.ansible
 
 echo "\033[35mRunning ansible playbook\033[0m"
 ansible-playbook -K --ask-vault-password -t ubuntu ansible/local.yml
 
-printf "\033[0;35mCleaning up script\033[0m\n"
-rm -rf ansible
+
