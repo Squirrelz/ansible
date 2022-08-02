@@ -10,7 +10,7 @@
   become: yes
   user:
     name:  "{{ the_user }}}"
-    shell: "{which zsh}"
+    shell: "chsh -s ${which zsh}"
   tags:
     - install
     - ubuntu
