@@ -12,7 +12,7 @@ git clone https://github.com/Squirrelz/ansible.git ~/.squirrelzansible
 
 
 echo "\033[35mRunning ansible playbook\033[0m"
-ansible-playbook -K --ask-vault-password ~/.ansible/pull/$HOSTNAME/local.yml
+ansible-playbook -K --ask-vault-password ~/.squirrelzansible/local.yml
 
 printf "\033[35Removing temporary files\033[0m\n"
 rm -rf ~/.squirrelzansible
