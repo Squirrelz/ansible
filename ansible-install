@@ -17,6 +17,6 @@ fi
 
 
 echo "\033[35mRunning ansible playbook\033[0m"
-ansible-playbook -K --ask-vault-password -t ubuntu ansible/local.yml
+ansible-playbook -K --ask-vault-password -t ubuntu ~/.ansible/pull/$HOSTNAME/local.yml
 
 
