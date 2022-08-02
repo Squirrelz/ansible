@@ -1,19 +1,13 @@
 #!/usr/bin/env bash
 
-printf "\033[35mUpdating APT and installing Ansible\033[0m\n"
 sudo apt update
 sudo apt install software-properties-common -y
 sudo add-apt-repository --yes --update ppa:ansible/ansible
 sudo apt install -y ansible git
 
-
-printf "\033[35Temporarily grabbing the ansible files\033[0m\n"
 git clone https://github.com/Squirrelz/ansible.git ~/.squirrelzansible
 
-
-echo "\033[35mRunning ansible playbook\033[0m"
 ansible-playbook -K --ask-vault-password ~/.squirrelzansible/local.yml
 
-printf "\033[35Removing temporary files\033[0m\n"
 rm -rf ~/.squirrelzansible
 
