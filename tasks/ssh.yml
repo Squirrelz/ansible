@@ -25,7 +25,7 @@
     - dotfiles
     - install
     - ssh
-- name: Set authorized key took from file
+- name: Set authorized key
   authorized_key:
     user: "{{ lookup('env', 'USER') }}"
     state: present
