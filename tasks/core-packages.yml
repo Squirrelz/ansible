@@ -59,12 +59,7 @@
   apt:
     name:
     - clang
-    - clang-11
-    - clang-12
     - clangd
-    - clangd-10
-    - clangd-11
-    - clangd-12
   tags:
     - install
     - neovim
