@@ -26,6 +26,7 @@
   - import_tasks: tasks/lf.yml
   - import_tasks: tasks/pistol.yml
   - import_tasks: tasks/neovim.yml
+  - import_tasks: tasks/network.yml
   - import_tasks: tasks/zsh.yml
   - import_tasks: tasks/omnisharp-lsp.yml
   - import_tasks: tasks/githubcli.yml
