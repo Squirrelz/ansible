@@ -10,6 +10,7 @@ if [ -d "~/.ansible/pull/$HOSTNAME" ]; then
 	printf "\033[35 ~/.ansible/pull/{$HOSTNAME} exists, attempting to pull updates\033[0m\n"
 	git pull ~/.ansible/pull/$HOSTNAME
 else
+	printf "\033[35m ~/.ansible/pull/{$HOSTNAME} does not exist.\033[0m\n"
 	printf "\033[35mpulling ansible dir\033[0m\n"
 	git clone https://github.com/Squirrelz/ansible.git ~/.ansible/pull/$HOSTNAME
 fi
