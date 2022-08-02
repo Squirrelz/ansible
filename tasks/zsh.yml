@@ -6,11 +6,9 @@
     - ubuntu
     - zsh
     
-- name: Change shell to zsh
-  become: yes
-  user:
-    name:  "{{ the_user }}"
-    shell: chsh -s $(which zsh)
+- name: Change users default shell to zsh
+  become: true
+  shell: chsh -s $(which zsh) {{ the_user }}
   tags:
     - install
     - ubuntu
