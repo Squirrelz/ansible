@@ -4,6 +4,7 @@
     source_key: "./.ssh/id_ed25519"
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
     personal: "{{ lookup('env', 'HOME') }}/personal"
+    the_user: "{{ ansible_user_id }}"
   pre_tasks:
   - name: Update cache and ensure some core utils are installed
     become: yes

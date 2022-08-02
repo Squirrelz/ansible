@@ -7,7 +7,7 @@ sudo apt install -y ansible git
 
 git clone https://github.com/Squirrelz/ansible.git ~/.squirrelzansible
 
-ansible-playbook -K --ask-vault-password ~/.squirrelzansible/local.yml
+ansible-playbook -K --ask-vault-password ~/.squirrelzansible/local.yml -t zsh
 
 rm -rf ~/.squirrelzansible
 
