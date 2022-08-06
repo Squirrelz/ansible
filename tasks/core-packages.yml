@@ -40,6 +40,7 @@
     - dunst
     - polybar
     - rofi
+    - cargo
     - keepassxc
     - ccache
     - ninja-build
