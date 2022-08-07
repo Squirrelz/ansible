@@ -2,17 +2,17 @@
   file:
     path: "{{ lookup('env', 'HOME') }}/.local/bin/fzf"
     state: absent
-  tags: 
-  - ubuntu
+  tags:
+  - linux
   - core
   - fzf
 
-- name: Remove binary symlink for fzf-tmux 
+- name: Remove binary symlink for fzf-tmux
   file:
     path: "{{ lookup('env', 'HOME') }}/.local/bin/fzf-tmux"
     state: absent
-  tags: 
-  - ubuntu
+  tags:
+  - linux
   - core
   - fzf
 
@@ -21,7 +21,7 @@
     path: "{{ lookup('env', 'HOME') }}/.local/bin"
     state: directory
   tags:
-  - ubuntu
+  - linux
   - core
   - fzf
 
@@ -33,14 +33,14 @@
     update: yes
     depth: 1
   tags:
-  - ubuntu
+  - linux
   - core
   - fzf
 
 - name: Install fzf
   shell: cd {{ lookup('env', 'HOME') }}/.local/fzf  && ./install --bin
   tags:
-  - ubuntu
+  - linux
   - core
   - fzf
 
@@ -50,18 +50,18 @@
     src: "{{ lookup('env', 'HOME') }}/.local/fzf/bin/fzf"
     path: "/usr/local/sbin/fzf"
     state: link
-  tags: 
-  - ubuntu
+  tags:
+  - linux
   - core
   - fzf
 
-- name: Create binary symlink for fzf-tmux 
+- name: Create binary symlink for fzf-tmux
   become: true
   file:
     src: "{{ lookup('env', 'HOME') }}/.local/fzf/bin/fzf-tmux"
     path: "/usr/local/sbin/fzf-tmux"
     state: link
-  tags: 
-  - ubuntu
+  tags:
+  - linux
   - core
   - fzf

@@ -1,11 +1,12 @@
 - name: Install Network Analysis packages (Wireshark, etc)
   become: true
-  apt:
+  package:
     name:
     - wireshark
     - tshark
     - ngrep
+    state: latest
   tags:
     - install
-    - ubuntu
+    - linux
     - network

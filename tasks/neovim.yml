@@ -30,7 +30,8 @@
     - neovim
 - name: Neovim Plugin Development 1
   become: true
-  apt: name=luarocks
+  package: name=luarocks
+  state: present
   tags:
     - install
     - neovim

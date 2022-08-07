@@ -4,7 +4,7 @@
   apt_repository:
     repo: ppa:longsleep/golang-backports
     state: present
-  tags: 
+  tags:
   - ubuntu
   - core
   - golang
@@ -14,10 +14,7 @@
   become: yes
   apt:
     name: golang-go
-  tags: 
+  tags:
   - ubuntu
   - core
   - golang
-  - pistol
-
-# Install pistol env CGO_ENABLED=1 GO111MODULE=on go install github.com/doronbehar/pistol/cmd/pistol@latest

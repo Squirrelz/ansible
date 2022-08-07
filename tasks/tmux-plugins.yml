@@ -1,10 +1,11 @@
 - name: Install plugin dependencies
   become: true
-  apt:
+  package:
     name:
     - urlview # tmux url plugin support
-  tags: 
-  - ubuntu
+    state: present
+  tags:
+  - linux
   - core
   - tmux
   - tmux-plugins
@@ -14,7 +15,7 @@
     path: "{{ lookup('env', 'HOME') }}/.local/share/tmux/plugins"
     state: absent
   tags:
-  - ubuntu
+  - linux
   - core
   - tmux
   - tmux-plugins
@@ -24,7 +25,7 @@
     path: "{{ lookup('env', 'HOME') }}/.local/share/tmux/plugins"
     state: directory
   tags:
-  - ubuntu
+  - linux
   - core
   - tmux
   - tmux-plugins
@@ -34,7 +35,7 @@
     repo: 'https://github.com/tmux-plugins/tpm.git'
     dest: "{{ lookup('env', 'HOME') }}/.local/share/tmux/plugins/tpm"
   tags:
-  - ubuntu
+  - linux
   - core
   - tmux
   - tmux-plugins

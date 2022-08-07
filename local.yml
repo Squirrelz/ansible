@@ -5,18 +5,6 @@
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
     personal: "{{ lookup('env', 'HOME') }}/personal"
     the_user: "{{ ansible_user_id }}"
-  pre_tasks:
-  - name: Update cache and ensure some core utils are installed
-    become: yes
-    apt:
-      update_cache: true
-      name:
-      - build-essential
-      - git
-      - curl
-    tags:
-    - pre
-    - ubuntu
   tasks:
   - import_tasks: tasks/ssh.yml
   - import_tasks: tasks/core-packages.yml
@@ -30,6 +18,5 @@
   - import_tasks: tasks/network.yml
   - import_tasks: tasks/zsh.yml
   - import_tasks: tasks/omnisharp-lsp.yml
-  - import_tasks: tasks/githubcli.yml
   - import_tasks: tasks/docker.yml
   - import_tasks: tasks/dotfiles.yml

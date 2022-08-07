@@ -7,20 +7,21 @@
     accept_hostkey: yes
     version: main
   tags:
-  - ubuntu
+  - linux
   - dotfiles
 
 - name: Install stow
   become: true
-  apt:
+  package:
     name: stow
-  tags: 
-  - ubuntu
+    state: latest
+  tags:
+  - linux
   - dotfiles
 
 - name: Stow dotfiles
-  shell: cd {{ lookup('env', 'HOME') }}/dotfiles && ./ubuntu-install
+  shell: cd {{ lookup('env', 'HOME') }}/dotfiles && ./linux-install
   tags:
-  - ubuntu
+  - linux
   - dotfiles
 

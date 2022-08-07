@@ -1,11 +1,11 @@
 - name: Install ZSH
   become: true
-  apt: name=zsh
+  package: name=zsh state=latest
   tags:
     - install
     - ubuntu
     - zsh
-    
+
 - name: Change users default shell to zsh
   become: true
   shell: chsh -s $(which zsh) {{ the_user }}
