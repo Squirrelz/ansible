@@ -11,7 +11,7 @@ osInfo[/etc/alpine-release]=apk
 for f in ${!osInfo[@]}
 do
     if [[ -f $f ]];then
-	sudo $f install -y ansible git
+	sudo $osInfo[$f] install -y ansible git
 
 	git clone https://github.com/Squirrelz/ansible.git ~/.squirrelzansible
 
