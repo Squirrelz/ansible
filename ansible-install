@@ -1,13 +1,23 @@
 #!/usr/bin/env bash
 
-sudo apt update
-sudo apt install software-properties-common -y
-sudo add-apt-repository --yes --update ppa:ansible/ansible
-sudo apt install -y ansible git
+declare -A osInfo;
+osInfo[/etc/redhat-release]=dnf
+osInfo[/etc/arch-release]=pacman
+osInfo[/etc/gentoo-release]=emerge
+osInfo[/etc/SuSE-release]=zypp
+osInfo[/etc/debian_version]=apt-get
+osInfo[/etc/alpine-release]=apk
 
-git clone https://github.com/Squirrelz/ansible.git ~/.squirrelzansible
+for f in ${!osInfo[@]}
+do
+    if [[ -f $f ]];then
+	sudo $f install -y ansible git
 
-ansible-playbook -K --ask-vault-password ~/.squirrelzansible/local.yml
+	git clone https://github.com/Squirrelz/ansible.git ~/.squirrelzansible
 
-rm -rf ~/.squirrelzansible
+	ansible-playbook -K --ask-vault-password ~/.squirrelzansible/local.yml
+
+	rm -rf ~/.squirrelzansible
+    fi
+done
 
