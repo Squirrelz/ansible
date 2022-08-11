@@ -22,11 +22,3 @@
   tags:
   - linux
   - omnisharp
-
-#- name: Ensure omnisharp dir exists for global settings
-#  file:
-#    path: "{{ lookup('env', 'HOME') }}/.omnisharp"
-#    state: directory
-#  tags:
-#  - linux
-#  - omnisharp

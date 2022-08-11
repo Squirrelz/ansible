@@ -51,3 +51,6 @@
 
 - name: TabNine installation
   shell: "cd {{ lookup('env', 'HOME')}}/.local/share/nvim/site/pack/packer/start/cmp-tabnine && ./install.sh"
+  tags:
+    - install
+    - neovim

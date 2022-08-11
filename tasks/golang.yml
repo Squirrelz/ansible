@@ -5,7 +5,7 @@
     repo: ppa:longsleep/golang-backports
     state: present
   tags:
-  - ubuntu
+  - linux
   - core
   - golang
   - pistol
@@ -15,6 +15,6 @@
   apt:
     name: golang-go
   tags:
-  - ubuntu
+  - linux
   - core
   - golang

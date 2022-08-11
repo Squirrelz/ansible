@@ -9,8 +9,7 @@
     - libpthread-stubs0-dev
     state: latest
   tags:
-    - install
-    - neovim
+    - linux
     - core
 
 - name: Install System Packages 2/3
@@ -24,8 +23,7 @@
     - gettext
     state: latest
   tags:
-    - install
-    - neovim
+    - linux
     - core
 
 - name: Install System Packages 3/3
@@ -54,7 +52,7 @@
     - clangd
     state: latest
   tags:
-    - install
+    - linux
     - core
 
 - name: Install Clang
@@ -65,8 +63,7 @@
     - clangd
     state: present
   tags:
-    - install
-    - neovim
+    - linux
     - core
 
 - name: Ensure .local bin folder exists
@@ -74,5 +71,5 @@
     path: "{{ lookup('env', 'HOME') }}/.local/bin"
     state: directory
   tags:
-  - linux
-  - core
+    - linux
+    - core
