@@ -11,7 +11,6 @@
     tags: tmux, always
 
   - import_tasks: tasks/core-packages.yml
-    tags: always
 
   - import_tasks: tasks/golang.yml
 
