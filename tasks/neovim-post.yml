@@ -1,0 +1,5 @@
+- name: Run Neovim headless PlugInstall/PlugUpdate
+  shell: nvim --headless +'PlugInstall --sync' +'PlugUpdate' +qall
+
+- name: TabNine installation
+  shell: "cd {{ lookup('env', 'HOME')}}/.local/share/nvim/site/pack/packer/start/cmp-tabnine && ./install.sh"

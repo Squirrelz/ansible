@@ -6,22 +6,12 @@
     update: yes
     accept_hostkey: yes
     version: main
-  tags:
-  - linux
-  - dotfiles
 
 - name: Install stow
   become: true
   package:
     name: stow
     state: latest
-  tags:
-  - linux
-  - dotfiles
 
 - name: Stow dotfiles
   shell: cd {{ lookup('env', 'HOME') }}/dotfiles && ./linux-install
-  tags:
-  - linux
-  - dotfiles
-

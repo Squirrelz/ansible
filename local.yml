@@ -20,3 +20,4 @@
   - import_tasks: tasks/omnisharp-lsp.yml
   - import_tasks: tasks/docker.yml
   - import_tasks: tasks/dotfiles.yml
+  - import_tasks: tasks/neovim-post.yml

@@ -29,9 +29,3 @@
 - name: Neovim Plugin Development 2 luacheck
   become: true
   shell: luarocks install luacheck
-  
-- name: Run Neovim headless PlugInstall/PlugUpdate
-  shell: nvim --headless +'PlugInstall --sync' +'PlugUpdate' +qall
-
-- name: TabNine installation
-  shell: "cd {{ lookup('env', 'HOME')}}/.local/share/nvim/site/pack/packer/start/cmp-tabnine && ./install.sh"
