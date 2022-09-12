@@ -1,8 +1,0 @@
-- name: Install Network Analysis packages (Wireshark, etc)
-  become: true
-  package:
-    name:
-    - wireshark
-    - tshark
-    - ngrep
-    state: latest

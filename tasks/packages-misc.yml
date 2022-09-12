@@ -1,0 +1,25 @@
+- name: Install luxury packages
+  become: true
+  package:
+    name:
+    - compton
+    - direnv
+    - htop
+    - lsof
+    - i3
+    - dunst
+    - polybar
+    - rofi
+    - feh
+    - cargo
+    - keepassxc
+    - ccache
+    - ninja-build
+    - python3-pip
+    - dconf-editor
+    - nvidia-settings
+    - pavucontrol
+    - wireshark
+    - tshark
+    - ngrep
+    state: latest
