@@ -15,7 +15,11 @@ do
 
 	git clone https://github.com/Squirrelz/ansible.git ~/.squirrelzansible
 
-	ansible-playbook -K --ask-vault-password ~/.squirrelzansible/local.yml
+	if [ "$1" -gt "-1" ]; then
+		ansible-playbook -K --ask-vault-password ~/.squirrelzansible/local.yml --tags $1
+	else
+		ansible-playbook -K --ask-vault-password ~/.squirrelzansible/local.yml
+	fi
 
 	rm -rf ~/.squirrelzansible
     fi
