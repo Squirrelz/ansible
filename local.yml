@@ -8,10 +8,10 @@
   tasks:
 
   - import_tasks: tasks/ssh.yml
-    tags: tmux, core
+    tags: tmux, always
 
   - import_tasks: tasks/core-packages.yml
-    tags: core
+    tags: always
 
   - import_tasks: tasks/golang.yml
 
@@ -33,14 +33,14 @@
   - import_tasks: tasks/network.yml
 
   - import_tasks: tasks/zsh.yml
-    tags: core
+    tags: always
 
   - import_tasks: tasks/omnisharp-lsp.yml
 
   - import_tasks: tasks/docker.yml
 
   - import_tasks: tasks/dotfiles.yml
-    tags: core
+    tags: always
 
   - import_tasks: tasks/neovim-post.yml
     tags: nvim
