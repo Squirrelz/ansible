@@ -2,9 +2,6 @@
   stat:
     path: "{{ lookup('env', 'HOME') }}/.docker/cli-plugins"
   register: docker_path
-  tags:
-  - install
-  - docker
 
 - name: Install Docker dependencies
   become: true
@@ -15,23 +12,14 @@
     - gnupg
     - lsb-release
     state: present
-  tags:
-  - install
-  - docker
 
 - name: Install Docker's official GPG key
   shell: curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
   when: docker_path.stat.exists == False
-  tags:
-  - install
-  - docker
 
 - name: Setup Docker's stable repository
   shell: echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
   when: docker_path.stat.exists == False
-  tags:
-  - install
-  - docker
 
 - name: Install Docker engine
   become: true
@@ -41,43 +29,24 @@
     - docker-ce
     - docker-ce-cli
     - containerd.io
-  tags:
-  - install
-  - docker
 
 - name: Remove docker compose directory if it exists
   file:
     path: "{{ lookup('env', 'HOME') }}/.docker/cli-plugins"
     state: absent
-  tags:
-  - install
-  - docker
 
 - name: Ensure .docker/cli-plugins path exists
   file:
     path: "{{ lookup('env', 'HOME') }}/.docker/cli-plugins"
     state: directory
-  tags:
-  - install
-  - docker
 
 - name: Register latest docker compose version
   shell: |
     curl --silent "https://api.github.com/repos/docker/compose/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")' | cut -c 2-
   register: compose_ver
-  tags:
-  - install
-  - docker
 
-- name: Install Docker Compose to the plugins path
+- name: Install Docker Compose to the plugins path (1/2)
   shell: curl -SL https://github.com/docker/compose/releases/download/v{{ compose_ver.stdout }}/docker-compose-linux-x86_64 -o {{ lookup('env', 'HOME') }}/.docker/cli-plugins/docker-compose
-  tags:
-  - install
-  - docker
 
-- name: Install Docker Compose to the plugins path
+- name: Install Docker Compose to the plugins path (2/2)
   shell: chmod +x "{{ lookup('env', 'HOME') }}/.docker/cli-plugins/docker-compose"
-  tags:
-  - install
-  - docker
-

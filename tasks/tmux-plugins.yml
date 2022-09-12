@@ -4,39 +4,18 @@
     name:
     - urlview # tmux url plugin support
     state: present
-  tags:
-  - linux
-  - core
-  - tmux
-  - tmux-plugins
 
 - name: Remove tmux plugins directory
   file:
     path: "{{ lookup('env', 'HOME') }}/.local/share/tmux/plugins"
     state: absent
-  tags:
-  - linux
-  - core
-  - tmux
-  - tmux-plugins
 
 - name: Create tmux plugins directory
   file:
     path: "{{ lookup('env', 'HOME') }}/.local/share/tmux/plugins"
     state: directory
-  tags:
-  - linux
-  - core
-  - tmux
-  - tmux-plugins
 
 - name: Clone tmux plugin manager
   ansible.builtin.git:
     repo: 'https://github.com/tmux-plugins/tpm.git'
     dest: "{{ lookup('env', 'HOME') }}/.local/share/tmux/plugins/tpm"
-  tags:
-  - linux
-  - core
-  - tmux
-  - tmux-plugins
-

@@ -2,23 +2,13 @@
   file:
     path: "{{ lookup('env', 'HOME') }}/.local/omnisharp"
     state: absent
-  tags:
-  - linux
-  - omnisharp
 
 - name: Ensure omnisharp dir target path exists
   file:
     path: "{{ lookup('env', 'HOME') }}/.local/omnisharp"
     state: directory
-  tags:
-  - linux
-  - omnisharp
-
 - name: Download omnisharp tarball and unarchive into local folder
   unarchive:
     src: https://github.com/OmniSharp/omnisharp-roslyn/releases/latest/download/omnisharp-linux-x64.tar.gz
     dest: "{{ lookup('env', 'HOME') }}/.local/omnisharp"
     remote_src: yes
-  tags:
-  - linux
-  - omnisharp

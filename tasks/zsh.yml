@@ -1,27 +1,15 @@
 - name: Install ZSH
   become: true
   package: name=zsh state=latest
-  tags:
-    - install
-    - ubuntu
-    - zsh
 
 - name: Change users default shell to zsh
   become: true
   shell: chsh -s $(which zsh) {{ the_user }}
-  tags:
-    - install
-    - ubuntu
-    - zsh
 
 - name: Check that the somefile.conf exists
   stat:
     path: "{{ lookup('env', 'HOME') }}/.oh-my-zsh"
   register: oh_my_stats
-  tags:
-    - install
-    - ubuntu
-    - zsh
 
 - name: Oh-My-Zsh
   shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh > ~/.oh-my-installer && chmod +x ~/.oh-my-installer && ~/.oh-my-installer
@@ -36,16 +24,8 @@
   ansible.builtin.git:
     repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
     dest: "~/.oh-my-zsh/plugins/zsh-autosuggestions"
-  tags:
-    - install
-    - ubuntu
-    - zsh
 
 - name: Install zsh-nvm
   ansible.builtin.git:
     repo: 'https://github.com/lukechilds/zsh-nvm.git'
     dest: "~/.oh-my-zsh/plugins/zsh-nvm"
-  tags:
-    - install
-    - ubuntu
-    - zsh

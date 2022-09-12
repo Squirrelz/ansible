@@ -8,9 +8,6 @@
     - pkg-config
     - libpthread-stubs0-dev
     state: latest
-  tags:
-    - linux
-    - core
 
 - name: Install System Packages 2/3
   become: true
@@ -22,9 +19,6 @@
     - libtool-bin
     - gettext
     state: latest
-  tags:
-    - linux
-    - core
 
 - name: Install System Packages 3/3
   become: true
@@ -51,9 +45,6 @@
     - moreutils
     - clangd
     state: latest
-  tags:
-    - linux
-    - core
 
 - name: Install Clang
   become: true
@@ -62,14 +53,8 @@
     - clang
     - clangd
     state: present
-  tags:
-    - linux
-    - core
 
 - name: Ensure .local bin folder exists
   file:
     path: "{{ lookup('env', 'HOME') }}/.local/bin"
     state: directory
-  tags:
-    - linux
-    - core

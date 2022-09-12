@@ -6,7 +6,3 @@
     - tshark
     - ngrep
     state: latest
-  tags:
-    - install
-    - linux
-    - network
