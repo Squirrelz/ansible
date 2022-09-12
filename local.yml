@@ -6,18 +6,41 @@
     personal: "{{ lookup('env', 'HOME') }}/personal"
     the_user: "{{ ansible_user_id }}"
   tasks:
+
   - import_tasks: tasks/ssh.yml
+    tags: tmux, core
+
   - import_tasks: tasks/core-packages.yml
+    tags: core
+
   - import_tasks: tasks/golang.yml
+
   - import_tasks: tasks/tmux.yml
+    tags: tmux
+
   - import_tasks: tasks/tmux-plugins.yml
+    tags: tmux
+
   - import_tasks: tasks/fzf.yml
+
   - import_tasks: tasks/lf.yml
+
   - import_tasks: tasks/pistol.yml
+
   - import_tasks: tasks/neovim.yml
+    tags: nvim
+
   - import_tasks: tasks/network.yml
+
   - import_tasks: tasks/zsh.yml
+    tags: core
+
   - import_tasks: tasks/omnisharp-lsp.yml
+
   - import_tasks: tasks/docker.yml
+
   - import_tasks: tasks/dotfiles.yml
+    tags: core
+
   - import_tasks: tasks/neovim-post.yml
+    tags: nvim
