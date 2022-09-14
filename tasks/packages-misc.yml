@@ -22,4 +22,10 @@
     - wireshark
     - tshark
     - ngrep
+    - python3
+    - pip
     state: latest
+
+- name: Install pip packages
+  ansible.builtin.pip:
+    name: diff-highlight
