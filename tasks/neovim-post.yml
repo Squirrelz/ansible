@@ -1,5 +1,6 @@
 - name: Run Neovim headless PlugInstall/PlugUpdate
   command: "nvim --headless -c 'autocmd User PackerSync quitall' -c 'PackerSync'"
+  ignore_errors: yes # Above still needs to be fixed. Currently errors and doesnt load packages.
 
 - name: TabNine installation
   shell: "cd {{ lookup('env', 'HOME')}}/.local/share/nvim/site/pack/packer/start/cmp-tabnine && ./install.sh"
