@@ -43,4 +43,4 @@
     tags: always
 
   - import_tasks: tasks/neovim-post.yml
-    tags: nvim
+    tags: nvim, never
