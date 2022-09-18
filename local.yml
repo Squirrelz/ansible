@@ -2,15 +2,15 @@
   connection: local
   vars_files:
     - "vars/common.yml"
-    
+
   tasks:
   - import_tasks: tasks/ssh.yml
     tags: tmux, always
 
-  - include_tasks: "os/{{ ansible_os_family | lower }}.-core.yml"
+  - include_tasks: "os/{{ ansible_os_family | lower }}-core.yml"
     tags: always
 
-  - include_tasks: "os/{{ ansible_os_family | lower }}.-optional.yml"
+  - include_tasks: "os/{{ ansible_os_family | lower }}-optional.yml"
 
   - import_tasks: tasks/tmux.yml
     tags: tmux
