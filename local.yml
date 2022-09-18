@@ -10,12 +10,10 @@
   - import_tasks: tasks/ssh.yml
     tags: tmux, always
 
-  - import_tasks: tasks/packages-core.yml
+  - import_tasks: os/{{ ansible_os_family }}.-core.yml
     tags: always
 
-  - import_tasks: tasks/packages-misc.yml
-
-  - import_tasks: tasks/golang.yml
+  - import_tasks: os/{{ ansible_os_family }}.-optional.yml
 
   - import_tasks: tasks/tmux.yml
     tags: tmux
@@ -34,6 +32,10 @@
 
   - import_tasks: tasks/zsh.yml
     tags: always
+
+  - import_tasks: tasks/lang-go.yml
+
+  - import_tasks: tasks/lang-rust.yml
 
   - import_tasks: tasks/lsp-omnisharp.yml
 
