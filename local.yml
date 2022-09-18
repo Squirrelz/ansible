@@ -10,10 +10,10 @@
   - import_tasks: tasks/ssh.yml
     tags: tmux, always
 
-  - import_tasks: os/{{ ansible_os_family }}.-core.yml
+  - import_tasks: "os/{{ ansible_os_family }}.-core.yml"
     tags: always
 
-  - import_tasks: os/{{ ansible_os_family }}.-optional.yml
+  - import_tasks: "os/{{ ansible_os_family }}.-optional.yml"
 
   - import_tasks: tasks/tmux.yml
     tags: tmux
