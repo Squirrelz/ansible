@@ -1,19 +1,17 @@
 - hosts: localhost
   connection: local
-  vars:
-    source_key: "./.ssh/id_ed25519"
-    dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
-    personal: "{{ lookup('env', 'HOME') }}/personal"
-    the_user: "{{ ansible_user_id }}"
+  vars_files:
+    - "vars/common.yml"
+    - [ "vars/{{ ansible_facts['os_family'] | lower }}.yml" ]
   tasks:
 
   - import_tasks: tasks/ssh.yml
     tags: tmux, always
 
-  - import_tasks: "os/{{ ansible_os_family }}.-core.yml"
+  - include_tasks: "os/{{ ansible_os_family | lower }}.-core.yml"
     tags: always
 
-  - import_tasks: "os/{{ ansible_os_family }}.-optional.yml"
+  - include_tasks: "os/{{ ansible_os_family | lower }}.-optional.yml"
 
   - import_tasks: tasks/tmux.yml
     tags: tmux

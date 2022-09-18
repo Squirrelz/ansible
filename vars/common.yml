@@ -1,0 +1,8 @@
+source_key: "./.ssh/id_ed25519"
+dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_ed25519"
+personal: "{{ lookup('env', 'HOME') }}/personal"
+the_user: "{{ ansible_user_id }}"
+
+rustup_user: "{{ ansible_env.USER | default('root') }}"
+rustup_home_suffix: ".rustup"
+rustup_cargo_home_suffix: ".cargo"
