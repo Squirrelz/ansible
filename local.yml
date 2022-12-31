@@ -17,6 +17,10 @@
 
   - import_tasks: tasks/tmux-plugins.yml
     tags: tmux
+    
+  - import_tasks: tasks/lang-go.yml
+
+  - import_tasks: tasks/lang-rust.yml
 
   - import_tasks: tasks/fzf.yml
 
@@ -29,10 +33,6 @@
 
   - import_tasks: tasks/zsh.yml
     tags: always
-
-  - import_tasks: tasks/lang-go.yml
-
-  - import_tasks: tasks/lang-rust.yml
 
   - import_tasks: tasks/lsp-omnisharp.yml
 

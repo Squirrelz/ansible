@@ -1,4 +1,4 @@
-- name: Install System Packages 1/2 (build-essential, keychain, cmake, pkg-config, libpthread-stubs0-dev)
+- name: Install System Packages (1/2)
   become: true
   package:
     name:
@@ -7,9 +7,10 @@
     - cmake
     - pkg-config
     - libpthread-stubs0-dev
+    - golang
     state: latest
 
-- name: Install System Packages 2/2 (lua5.1, unzip, libtool, libtool-bin, gettext)
+- name: Install System Packages (2/2)
   become: true
   package:
     name:
