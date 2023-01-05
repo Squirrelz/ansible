@@ -24,6 +24,7 @@
     - ngrep
     - python3
     - pip
+    - ripgrep
     state: latest
 
 - name: Install pip packages
