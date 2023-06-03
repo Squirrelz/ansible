@@ -21,4 +21,4 @@
     dest: "{{ lookup('env', 'HOME') }}/.tmux/plugins/tpm"
 
 - name: Run tmux plugin manager
-  command: "~{{ lookup('env', 'HOME') }}/.tmux/plugins/tpm/bin/install_plugins"
+  command: "{{ lookup('env', 'HOME') }}/.tmux/plugins/tpm/bin/install_plugins"
