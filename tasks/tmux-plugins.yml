@@ -19,3 +19,6 @@
   ansible.builtin.git:
     repo: 'https://github.com/tmux-plugins/tpm.git'
     dest: "{{ lookup('env', 'HOME') }}/.local/share/tmux/plugins/tpm"
+
+- name: Run tmux plugin manager
+  command: "~{{ lookup('env', 'HOME') }}/.local/share/tmux/plugins/tpm/bin/install_plugins"
