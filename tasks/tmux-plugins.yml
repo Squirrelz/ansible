@@ -7,18 +7,18 @@
 
 - name: Remove tmux plugins directory
   file:
-    path: "{{ lookup('env', 'HOME') }}/.local/share/tmux/plugins"
+    path: "{{ lookup('env', 'HOME') }}/.tmux/plugins"
     state: absent
 
 - name: Create tmux plugins directory
   file:
-    path: "{{ lookup('env', 'HOME') }}/.local/share/tmux/plugins"
+    path: "{{ lookup('env', 'HOME') }}/.tmux/plugins"
     state: directory
 
 - name: Clone tmux plugin manager
   ansible.builtin.git:
     repo: 'https://github.com/tmux-plugins/tpm.git'
-    dest: "{{ lookup('env', 'HOME') }}/.local/share/tmux/plugins/tpm"
+    dest: "{{ lookup('env', 'HOME') }}/.tmux/plugins/tpm"
 
 - name: Run tmux plugin manager
-  command: "~{{ lookup('env', 'HOME') }}/.local/share/tmux/plugins/tpm/bin/install_plugins"
+  command: "~{{ lookup('env', 'HOME') }}/.tmux/plugins/tpm/bin/install_plugins"
