@@ -12,12 +12,12 @@
 
   - include_tasks: "os/{{ ansible_os_family | lower }}-optional.yml"
 
-  - import_tasks: tasks/tmux.yml
-    tags: tmux
     
   - import_tasks: tasks/lang-go.yml
 
   - import_tasks: tasks/lang-rust.yml
+
+  - import_tasks: tasks/node.yml
 
   - import_tasks: tasks/fzf.yml
 
@@ -37,6 +37,9 @@
 
   - import_tasks: tasks/dotfiles.yml
     tags: always
+    
+  - import_tasks: tasks/tmux.yml
+    tags: tmux
 
   - import_tasks: tasks/tmux-plugins.yml
     tags: tmux
