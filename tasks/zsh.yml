@@ -12,7 +12,7 @@
   register: oh_my_stats
 
 - name: Oh-My-Zsh
-  shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh > ~/.oh-my-installer && chmod +x ~/.oh-my-installer && ~/.oh-my-installer
+  shell: curl -L https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh > {{ lookup('env', 'HOME') }}/.oh-my-installer && chmod +x ~/.oh-my-installer && ~/.oh-my-installer
   tags:
     - install
     - ubuntu
@@ -23,9 +23,9 @@
 - name: Install zsh-autosuggestions
   ansible.builtin.git:
     repo: 'https://github.com/zsh-users/zsh-autosuggestions.git'
-    dest: "~/.oh-my-zsh/plugins/zsh-autosuggestions"
+    dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/plugins/zsh-autosuggestions"
 
 - name: Install zsh-nvm
   ansible.builtin.git:
     repo: 'https://github.com/lukechilds/zsh-nvm.git'
-    dest: "~/.oh-my-zsh/plugins/zsh-nvm"
+    dest: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/plugins/zsh-nvm"
