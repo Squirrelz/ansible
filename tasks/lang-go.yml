@@ -1,4 +1,3 @@
-# nvim hex highlighting plugin support, pistol install
 - name: Add golang ppa
   become: yes
   apt_repository:

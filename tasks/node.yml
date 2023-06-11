@@ -1,10 +1,13 @@
-- name: Install nodejs and npm
+- name: Clone N
+  ansible.builtin.git:
+    repo: 'https://github.com/tj/n.git'
+    dest: "{{ lookup('env', 'HOME') }}/n"
+
+- name: Install N
+  community.general.make:
+    chdir: "{{ lookup('env', 'HOME') }}/n"
+    target: install
   become: true
-  apt:
-    name: ["nodejs", "npm"]
-  tags:
-    - install
-    - node
 
 - name: npmjs prefix
   shell: mkdir -p {{ lookup('env', 'HOME') }}/.local/.npm-global
@@ -31,16 +34,13 @@
   - node
   - npm-path
 
-- name: Install N
-  npm:
-    name: n
-    global: yes
-  tags:
-    - install
-    - node
-
 - name: Install correct version of Node
   shell: n 14
   tags:
     - install
     - node
+
+- name: Remove Neovim install files
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/n"
+    state: absent
