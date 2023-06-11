@@ -1,6 +1,6 @@
 - name: Remove neovim
   ansible.builtin.file:
-    path: ~/neovim
+    path: "{{ lookup('env', 'HOME') }}/neovim"
     state: absent
 
 - name: Clone Neovim
@@ -24,3 +24,8 @@
 - name: Neovim Plugin Development 2 luacheck
   become: true
   shell: luarocks install luacheck
+
+- name: Remove Neovim install files
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/neovim"
+    state: absent
