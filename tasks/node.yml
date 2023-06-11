@@ -4,10 +4,17 @@
     dest: "{{ lookup('env', 'HOME') }}/n"
 
 - name: Install N
+  become: true
   community.general.make:
     chdir: "{{ lookup('env', 'HOME') }}/n"
     target: install
+
+- name: Install correct version of Node
   become: true
+  shell: n 14
+  tags:
+    - install
+    - node
 
 - name: npmjs prefix
   shell: mkdir -p {{ lookup('env', 'HOME') }}/.local/.npm-global
@@ -33,12 +40,6 @@
   - install
   - node
   - npm-path
-
-- name: Install correct version of Node
-  shell: n 14
-  tags:
-    - install
-    - node
 
 - name: Remove Neovim install files
   ansible.builtin.file:
