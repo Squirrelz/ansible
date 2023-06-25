@@ -19,9 +19,6 @@
   shell: |
     curl --silent "https://api.github.com/repos/tmux/tmux/releases/latest" | grep -Po '"tag_name": "\K.*?(?=")'
   register: tmux_ver
-  args:
-    warn: false
-
 
 - name: Create tmux install directory
   become: true
