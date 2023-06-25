@@ -34,9 +34,6 @@
   - import_tasks: tasks/lsp-omnisharp.yml
 
   - import_tasks: tasks/docker.yml
-
-  - import_tasks: tasks/dotfiles.yml
-    tags: always
     
   - import_tasks: tasks/tmux.yml
     tags: tmux
@@ -46,3 +43,6 @@
 
   - import_tasks: tasks/neovim-post.yml
     tags: nvim, never
+
+  - import_tasks: tasks/dotfiles.yml
+    tags: always
