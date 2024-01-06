@@ -27,4 +27,5 @@
 
 - name: Install pip packages
   ansible.builtin.pip:
+    break-system-packages: true
     name: diff-highlight
