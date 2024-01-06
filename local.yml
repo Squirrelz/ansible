@@ -12,8 +12,6 @@
 
   - include_tasks: "os/{{ ansible_os_family | lower }}-optional.yml"
 
-  - import_tasks: tasks/node.yml
-
   - import_tasks: tasks/fzf.yml
 
   - import_tasks: tasks/lf.yml
