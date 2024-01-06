@@ -12,11 +12,6 @@
 
   - include_tasks: "os/{{ ansible_os_family | lower }}-optional.yml"
 
-    
-  - import_tasks: tasks/lang-go.yml
-
-  - import_tasks: tasks/lang-rust.yml
-
   - import_tasks: tasks/node.yml
 
   - import_tasks: tasks/fzf.yml
