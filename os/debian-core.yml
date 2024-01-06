@@ -21,10 +21,16 @@
     - moreutils
     - clang
     - clangd
-    - kitty
     state: latest
 
 - name: Ensure .local bin folder exists
   file:
     path: "{{ lookup('env', 'HOME') }}/.local/bin"
     state: directory
+
+- name: Installing terminal
+  become: true
+  package:
+    name:
+      - kitty
+    state: latest
