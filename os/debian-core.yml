@@ -21,6 +21,7 @@
     - moreutils
     - clang
     - clangd
+    - kitty
     state: latest
 
 - name: Ensure .local bin folder exists
