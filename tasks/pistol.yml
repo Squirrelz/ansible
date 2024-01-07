@@ -1,9 +1,0 @@
-- name: Install pistol dependencies
-  become: true
-  apt:
-    name:
-    - libmagic-dev
-    - poppler-utils
-
-- name: Install Plugins
-  shell: "env GOPATH={{ lookup('env', 'HOME') }}/.go CGO_ENABLED=1 GO111MODULE=on go install github.com/doronbehar/pistol/cmd/pistol@latest"
