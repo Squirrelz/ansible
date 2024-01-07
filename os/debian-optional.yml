@@ -23,4 +23,5 @@
     - python3
     - pip
     - ripgrep
+    - fzf
     state: latest
